@@ -1,5 +1,5 @@
 type
-    NodeKind = enum
+    NodeKind* = enum
         nkConstant,
         nkRoll,
         nkCollapse,
@@ -8,7 +8,7 @@ type
         nkMul,
         nkDiv,
 
-    Node = ref object
+    Node* = ref object
         case kind: NodeKind
             of nkConstant:
                 constant: int
@@ -19,7 +19,10 @@ type
             of nkAdd, nkSub, nkMul, nkDiv:
                 lhs, rhs: Node
 
-proc eval(node: Node): seq[int] =
+proc newConstant*(constant: int): Node =
+    return Node(kind: nkConstant, constant: constant)
+
+proc eval*(node: Node): seq[int] =
     case node.kind
         of nkConstant:
             return @[node.constant]
