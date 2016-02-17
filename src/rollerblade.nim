@@ -1,3 +1,3 @@
-import lib.ast
+import private.ast
 
 echo newConstant(4).eval()

@@ -1,6 +1,6 @@
 import unittest
 
-import rollerblade.lib.ast
+import private.ast
 
 suite "test evaluation":
     test "evaluate constant to constant list":
