@@ -5,11 +5,12 @@ import ospaths
 --define:nodejs  # no dependency on HTML, esp. when debugging with echo statmenets
 
 
-task build, "build rollerblade.js":
-    switch("out", "build/rollerblade.js")
+task build_js, "build rollerblade.js":
     mkdir("build")
-    setCommand "js"
+    cd("src")
 
+    switch("out", ".." / "build" / "rollerblade.js")
+    setCommand "js"
 
 task test_nim, "test rollerblade in nim":
     for file in listFiles("tests"):
