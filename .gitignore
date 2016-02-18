@@ -3,3 +3,4 @@ build
 tests/*
 !tests/config.nims
 !tests/test_*.nim
+src/rollerblade
